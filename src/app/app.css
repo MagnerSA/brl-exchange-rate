@@ -117,6 +117,7 @@
   font-weight: 500;
   border-radius: 100px;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .result {

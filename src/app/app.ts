@@ -80,6 +80,10 @@ export class App {
         this.cdr.detectChanges();
       }
     });
+
+    this.dailyData = [];
+    this.isHistoryOpen = false;
+    this.cdr.detectChanges();
   }
 
   toggleDailyExchangeRate() {
@@ -89,28 +93,6 @@ export class App {
       this.getDailyExchangeRate();
     }
   }
-
-  // getDailyExchangeRate() {
-  //   const code = this.currencyCode.trim().toUpperCase();
-
-  //   if (!code) return;
-
-  //   const apiKey = 'RVZG0GHEV2KORLNA';
-  //   const url = `https://api-brl-exchange.actionlabs.com.br/api/1.0/open/dailyExchangeRate?apiKey=${apiKey}&from_symbol=BRL&to_symbol=${code}`;
-
-  //   this.http.get<any>(url).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //       this.dailyData = res.data.slice(0, 31);
-  //       this.cdr.detectChanges();
-  //     },
-  //     error: (err) => {
-  //       console.error('Erro na API:', err);
-  //       this.dailyData = [];
-  //       this.cdr.detectChanges();
-  //     }
-  //   });
-  // }
 
   getDailyExchangeRate() {
     const code = this.currencyCode.trim().toUpperCase();
@@ -122,6 +104,8 @@ export class App {
     this.http.get<any>(url).subscribe({
       next: (res) => {
         const allData: DailyExchangeRateResponse[] = res.data;
+
+        console.log(allData);
 
         if (allData.length === 0) {
           this.dailyData = [];
