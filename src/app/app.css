@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh;
   box-sizing: border-box;
+  background-color: white;
 }
 
 .page-content {
@@ -164,7 +165,6 @@
 
 }
 
-
 .result-divider {
   background-color: #E5E5E5;
   width: 100%;
@@ -177,7 +177,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 16px;
+  padding: 32px;
   background-color: lightgreen;
   font-size: 40px;
   font-weight: 700;
